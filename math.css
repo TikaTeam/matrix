@@ -1,0 +1,241 @@
+@import "style.css";
+
+/* for inadequate CSS support: put warning message inside a span inside this: */
+p.browser-nocss { color: red }
+p.browser-nocss > span { display: none; } /* IE6 doesn't know CSS child. */
+
+/* The line-height is to accommodate a single level of super- or sub-script */
+p{ text-indent: 2.0em; text-align: justify; line-height: 1.2; }
+p.continuation{ text-indent: 0; }
+
+.math, i.mi, .math td, .math th {
+	font-family: freeserif, "times new roman", serif;
+	/*white-space: nowrap;*/
+	}
+.math, i.mi { word-spacing: -0.2ex; }
+span.math{ /*padding-left: 0.15ex; padding-right: 0.15ex*/ }
+div.math{ text-align: center; width: 100%; word-spacing: normal; }
+span.mtext{ word-spacing: normal; white-space: normal; word-spacing: normal; }
+
+b.algebra{ font-family: freesans, verdana, sans-serif; font-weight: bold; }
+/* In math, superscripts are normally placed rather low, so that the top
+ * of the first level of superscript is even with the top of the main line.
+ * Usually, the superscript is already rather small, but for on-screen 
+ * reading, a slightly larger size is more appropriate. */
+.math sup{ vertical-align: 0.35em; font-size: 75%; }
+.math sub{ vertical-align: -0.25em; font-size: 75%; }
+.math sub sub{ vertical-align: -0.5em; font-size: 85%; }
+.subsup{ position: relative; }
+.subsup sup{ position: absolute; left: 0; top: -0.2em; }
+.subsup sub{ top: 0; }
+/* Netscape 4 on mac interprets margins as being from the page?
+   Netscape 4 also screws up with padding, as though it means distance
+   from margin
+  .math var{margin-left: 0.15ex; margin-right: 0.15ex }
+*/
+.math table{ margin: auto; }
+
+table.matrix{ margin: auto; } /* allows table to be centered */
+.matrix td{
+	text-align: center;
+	line-height: 1.2em;
+	padding: 0 1ex 0ex 1ex;
+	}
+
+table.matrixbrak { margin: auto; }
+table.hybridmatrixbrak { margin: auto;
+		border-left: solid thin black;
+		border-right: solid thin black;
+}
+table.matrixbrak td.lbrak { width: 0.8ex;
+		font-size: 50%;
+		border-top: solid 0.25ex black;
+		border-bottom: solid 0.25ex black;
+		border-left: solid 0.5ex black;
+		border-right: none;
+	}
+table.matrixbrak td.rbrak { width: 0.8ex; font-size: 50%;
+		border-top: solid 0.25ex black;
+		border-bottom: solid 0.25ex black;
+		border-right: solid 0.5ex black;
+		border-left: none;
+	}
+table.matrixbrak td { line-height: 1.6; }
+table.matrixnorm td.normlines { width: 0.8ex; font-size: 50%;
+		border-top: none;
+		border-bottom: none;
+		border-right: solid 0.25ex black;
+		border-left: solid 0.25ex black;
+	}
+table.matrixnorm { margin: auto; }
+.norm { width: 0.3ex;
+	border-left: thin black solid;
+	border-right: thin black solid; }
+.matrixbracket { 
+	border-left: thin black solid;
+	border-right: thin black solid; }
+.matrixbracket .nibs { width: 0.3ex;
+	border-top: thin black solid;
+	border-bottom: thin black solid; }
+
+/* would like to make more compact vertically by setting line-height,
+ * but IE then truncates the glyphs */
+div.fraction { 
+	text-align: center;
+	display: inline; 
+	vertical-align: middle;
+}
+
+
+.fraction .divider { display: none; } /* for non-css browsers, use dashes */
+.fraction .numerator{
+	padding-bottom: 0.1ex;
+	border-bottom: thin black solid;
+	}
+
+span.fraction { position: relative;
+	line-height: 1em;
+	top: -0.5em;
+	}
+span.fraction .divider,
+span.fraction .denominator
+{
+	position: absolute;
+}
+.fraction .numerator { top: 0; }
+.fraction .divider { top: 0; }
+.fraction span.denominator { left: 0; bottom: -1.2em; }
+div.math {}
+/* ------------------------------ fractions using tables */
+span.baseline { color: silver; }
+
+table.fraction{ margin: auto; 
+	display: inline; 
+	padding: 0; }
+.math > table.fraction{ }
+.fraction td{ text-align: center; }
+
+.fraction td.numerator{ padding: 0; }
+.fraction td.divider{ vertical-align: baseline; letter-spacing: -0.1em;
+	line-height: 0.3em; height: 0.2em;  }
+.fraction td.denominator{ padding: 0; }
+
+div.fraction-inline {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle; }
+.fraction-inline > span { display: block; padding: 0; }
+.fraction-inline span.divider{ position: absolute; top: 0em; display: none;
+	letter-spacing: -0.1em;
+	 }
+.fraction-inline span.denominator{ border-top: thin solid black; }
+
+.hybrid .fraction{ display: inline-block; }
+/** ----------------------------- limit ***/
+table.limit { margin: auto; display: inline; vertical-align: -0.5em; }
+.limit { line-height: 0.9; padding: 0; }
+.limit .as { font-size: small; line-height: 1; padding: 0; }
+/*** ---------------------------- integrals and summations ***/
+table.integral { margin: auto; }
+table.integral td{
+	padding: 0; margin: 0;
+	line-height: 1;
+	}
+table.integral td.int{
+	font-size: 150%;
+	vertical-align: middle;
+	}
+table.sum { margin: auto; }
+
+table.sum-display .sum, .sum-display-inline .sum {
+	font-size: 150%;
+	padding: 0; margin: 0;
+	}
+/*span.int:first-child, span.int-cpct:first-child, span.sum:first-child {*/
+span.int, span.int-cpct, span.sum {
+	position: relative;
+	font-size: 150%;
+	padding: 0; margin: 0;
+	vertical-align: -0.25ex;
+	}
+.int, .int-cpct { }
+.int-cpct{ line-height: 1.6em;  }
+.sum{ text-align: center;
+	padding: 0 0.25ex 0 0.25ex;
+}
+.int .limits,
+.int-cpct .limits,
+.sum .limits {
+	line-height: 1;
+	font-size: medium;
+	text-align: center;
+}
+.int .limits sub,
+.int .limits sup,
+.int-cpct .limits sub,
+.int-cpct .limits sup,
+.sum .limits sub,
+.sum .limits sup {
+	position: absolute;
+	font-size: 75%;
+	}
+.sum { text-align: center; }
+/* how to center one object on another *at all*? */
+.sum .limits sup{ left: 0.7ex; top: -1em; }
+.sum .limits sub{ left: 0ex; top: 2.3em; }
+.int .limits sup{ left: 1.9ex; top: -0.5ex; }
+.int .limits sub{ left: 1.2ex; top: 1.6em; }
+.int-cpct .limits sup{ right: -1.5ex; top: -0.7ex; }
+.int-cpct .limits sub{ left: 1.2ex; top: 1.6em; }
+
+.math table td { vertical-align: middle; }
+.sum-display, .sum-display-inline { display: inline; }
+.sum-display .lim, .sum-display-inline .lim { font-size: 75%; }
+.sum-display-inline .lim, .sum-display-inline .sum { text-align: center; }
+table.sum-display-inline { vertical-align: -1.2em; padding: 0; }
+.sum-display td, .sum-display-inline td {
+	padding: 0; margin: 0; 
+}
+span.sum-display-inline { display: inline-block; vertical-align: -1.2em; }
+.sum-display-inline span.lim { display: block; }
+
+span.sum-display { display: inline; }
+.sum-display span.sum { vertical-align: baseline; }
+
+.expression, td.integrand{ padding-left: 0.5ex; padding-right: 0.5ex;
+	vertical-align: baseline; text-align: left; line-height: 2em;
+	 }
+.expression td{ }
+
+.uplimit, .downlimit, .upcntrlimit, .downcntrlimit
+	{ font-size: small; line-height: 1; }
+td.uplimit{ font-size: small; 
+	vertical-align: bottom;
+	text-align: left; padding: 0.2ex; }
+td.downlimit{ 
+	vertical-align: top; text-align: left; }
+td.upcntrlimit{ 
+	text-align: center;
+	padding-left: 0.75ex; }
+tr.lower, tr.upper { line-height: 1; }
+td.downcntrlimit{ padding-top: 0; 
+	text-align: center; }
+.summation td.upcntrlimit{  text-align: center;
+	padding-left: 0.75ex; }
+.summation td.downcntrlimit{  padding-top: 0;
+	padding-left: 0.75ex; }
+.expression sub { line-height: 1; } /* turn off Opera's inheritance of this */
+/*** complex formula display ***/
+table.expression{ margin: auto; }
+/*** equation numbers ***/
+table.display{ width: 100%; }
+td.blank{ width: 6em; }
+td.expression{ width: 85%; }
+.eqnnumber{ text-align: right; vertical-align: middle; width: 6em; }
+
+.math .radic2{ font-size: 100%; vertical-align: top; }
+.math .root{ border-top: thin black solid; }
+
+/* for inadequate CSS support: put warning message inside a span inside this: */
+p.browser-nocss2 { color: red }
+p.browser-nocss2 > span { display: none; } /* If no child selector, no CSS2. */
